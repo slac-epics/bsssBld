@@ -8,17 +8,17 @@ include $(TOP)/configure/CONFIG
 #==================================================
 # build a support library
 
-LIBRARY_IOC += bldBss
+LIBRARY_IOC += bsssBld
 
 # xxxRecord.h will be created from xxxRecord.dbd
 #DBDINC += xxxRecord
-# install bldBss.dbd into <top>/dbd
-DBD += bldBss.dbd
+# install bsssBld.dbd into <top>/dbd
+DBD += bsssBld.dbd
 
 # specify all source files to be compiled and added to the library
-#bldBss_SRCS += xxx
+#bsssBld_SRCS += xxx
 
-bldBss_LIBS += $(EPICS_BASE_IOC_LIBS)
+bsssBld_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 

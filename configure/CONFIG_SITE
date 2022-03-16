@@ -24,6 +24,8 @@ CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86_64
 # To install files into a location other than $(TOP) define
 #   INSTALL_LOCATION here.
 #INSTALL_LOCATION=</absolute/path/to/install/top>
+INSTALL_LOCATION_STARTUP += $(INSTALL_LOCATION)/startup
+DIRECTORY_TARGETS += $(INSTALL_LOCATION_STARTUP)
 
 # Set this when the IOC and build host use different paths
 #   to the install location. This may be needed to boot from
@@ -34,6 +36,30 @@ CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86_64
 #   or CROSS_OPT settings from base/configure/CONFIG_SITE
 #HOST_OPT = NO
 #CROSS_OPT = NO
+
+# =============================
+# Build Application Statically
+# =============================
+SHARED_LIBRARIES=NO
+STATIC_BUILD=YES
+
+# =============================
+# Define the archiecture versions
+# =============================
+LINUXRT_BUILDROOT_VERSION=buildroot-2019.08
+LINUX_VERSION=rhel6
+
+CPSW_FRAMEWORK_PACKAGE_NAME=cpsw/framework
+CPSW_FRAMEWORK_VERSION=R4.3.2
+CPSW_FRAMEWORK_TOP=$(PACKAGE_SITE_TOP)/$(CPSW_FRAMEWORK_PACKAGE_NAME)/$(CPSW_FRAMEWORK_VERSION)
+CPSW_FRAMEWORK_LIB     = $(CPSW_FRAMEWORK_TOP)/$(PKG_ARCH)/lib
+CPSW_FRAMEWORK_INCLUDE = $(CPSW_FRAMEWORK_TOP)/$(PKG_ARCH)/include
+
+BOOST_PACKAGE_NAME=boost
+BOOST_VERSION=1.64.0
+BOOST_TOP=$(PACKAGE_SITE_TOP)/$(BOOST_PACKAGE_NAME)/$(BOOST_VERSION)
+BOOST_LIB     = $(BOOST_TOP)/$(PKG_ARCH)/lib
+BOOST_INCLUDE = $(BOOST_TOP)/$(PKG_ARCH)/include
 
 # These allow developers to override the CONFIG_SITE variable
 # settings without having to modify the configure/CONFIG_SITE

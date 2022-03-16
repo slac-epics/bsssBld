@@ -19,6 +19,7 @@
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
+BSADRIVER_MODULE_VERSION=R2.1.0
 
 # ==========================================================
 # External Support module path definitions
@@ -33,6 +34,8 @@
 #
 # If your build fails, look for these paths in your build output
 # ==========================================================
+#BSADRIVER=$(EPICS_MODULES)/bsaDriver/$(BSADRIVER_MODULE_VERSION)
+BSADRIVER=/afs/slac/g/controls/development/users/marcio/bsaDriver/bsaDriver-git
 
 # Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
 EPICS_BASE = $(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)

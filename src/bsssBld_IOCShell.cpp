@@ -12,6 +12,8 @@ static void bld_callback(void *pUsr, void *buf, unsigned size)
     printf("Callback called with size = %ud\n", size);
 }
 
+int test;
+
 static const iocshArg initArg0 = { "portName",                                           iocshArgString };
 static const iocshArg initArg1 = { "register path (which should be described in yaml):", iocshArgString };
 static const iocshArg initArg2 = { "named_root (optional)",                              iocshArgString };
@@ -28,8 +30,9 @@ static void initCallFunc(const iocshArgBuf *args)
 
     char *named_root;
     named_root = (args[2].sval && strlen(args[2].sval))? args[2].sval: NULL;
+    test = 33;
 
-    registerBldCallback(named_root, bld_callback, NULL);//(void *) this);
+    registerBldCallback(named_root, bld_callback, &test);//(void *) this);
 }
 
 void bldAsynDriverRegister(void)

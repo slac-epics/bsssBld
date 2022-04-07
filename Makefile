@@ -3,6 +3,8 @@ TOP = .
 include $(TOP)/configure/CONFIG
 
 # Directories to build, any order
+DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *src*))
+DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *Db*))
 DIRS += configure
 DIRS += $(wildcard *Sup)
 DIRS += $(wildcard *App)

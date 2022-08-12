@@ -53,7 +53,8 @@ DBD += bsssBld.dbd
 # specify all source files to be compiled and added to the library
 bsssBld_SRCS += bsssBld_IOCShell.cpp
 
-#bsssBld_LIBS += cpsw
+bsssBld_LIBS += yamlLoader
+bsssBld_LIBS += cpsw
 bsssBld_LIBS += bsaDriver
 
 bsssBld_LIBS += $(EPICS_BASE_IOC_LIBS)

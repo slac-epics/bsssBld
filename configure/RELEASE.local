@@ -20,6 +20,7 @@
 # could match a directory name.
 # ==========================================================
 BSADRIVER_MODULE_VERSION=R2.1.0
+YAMLLOADER_MODULE_VERSION=R2.2.0
 
 # ==========================================================
 # External Support module path definitions
@@ -36,6 +37,7 @@ BSADRIVER_MODULE_VERSION=R2.1.0
 # ==========================================================
 #BSADRIVER=$(EPICS_MODULES)/bsaDriver/$(BSADRIVER_MODULE_VERSION)
 BSADRIVER=/afs/slac/g/controls/development/users/marcio/bsaDriver/bsaDriver-git
+YAMLLOADER=$(EPICS_MODULES)/yamlLoader/$(YAMLLOADER_MODULE_VERSION)
 
 # Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
 EPICS_BASE = $(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)

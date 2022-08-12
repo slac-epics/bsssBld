@@ -5,6 +5,7 @@
 #include <epicsExport.h>
 
 #include <bldStream.h>
+#include <yamlLoader.h>
 
 static void bld_callback(void *pUsr, void *buf, unsigned size)
 {
@@ -20,8 +21,8 @@ static const iocshArg initArg2 = { "named_root (optional)",                     
 static const iocshArg * const initArgs[] = { &initArg0,
                                              &initArg1,
                                              &initArg2 };
-static const iocshFuncDef initFuncDef = { "bldAsynDriverConfigure", 3, initArgs };
-static void initCallFunc(const iocshArgBuf *args)
+static const iocshFuncDef bsssBldFuncDef = { "bldAsynDriverConfigure", 3, initArgs };
+static void bsssBldCallFunc(const iocshArgBuf *args)
 {
  
 //    bsssAsynDriverConfigure(args[0].sval,  /* port name */
@@ -29,15 +30,16 @@ static void initCallFunc(const iocshArgBuf *args)
 //                           (args[2].sval && strlen(args[2].sval))? args[2].sval: NULL);  /* named_root */
 
     char *named_root;
-    named_root = (args[2].sval && strlen(args[2].sval))? args[2].sval: NULL;
+    named_root = cpswGetRootName();//(args[2].sval && strlen(args[2].sval))? args[2].sval: NULL;
     test = 33;
 
     registerBldCallback(named_root, bld_callback, &test);//(void *) this);
+    printf("Registered\n");
 }
 
 void bldAsynDriverRegister(void)
 {
-    iocshRegister(&initFuncDef,        initCallFunc);
+    iocshRegister(&bsssBldFuncDef,        bsssBldCallFunc);
 //    iocshRegister(&associateFuncDef,   associateCallFunc);
 }
 

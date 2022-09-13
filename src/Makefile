@@ -42,7 +42,7 @@ USR_LIBS_Linux += boost_system
 
 #==================================================
 # build a support library
-
+ifeq ($(T_A),linuxRT-x86_64)
 LIBRARY_IOC += bsssBld
 
 # xxxRecord.h will be created from xxxRecord.dbd
@@ -58,7 +58,7 @@ bsssBld_LIBS += cpsw
 bsssBld_LIBS += bsaDriver
 
 bsssBld_LIBS += $(EPICS_BASE_IOC_LIBS)
-
+endif
 #===========================
 
 include $(TOP)/configure/RULES
